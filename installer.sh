@@ -49,7 +49,7 @@ libraspberrypi-dev libgpiod-dev -y
 export WITH_OMX=1
 make
 echo -e "Create symlink..."
-sudo ln -s ./ustreamer /usr/local/bin/
+sudo ln -sf ./ustreamer /usr/local/bin/
 
 # Install v4l2rtspserver
 echo -e "Compiling v4l2rtspserver..."
@@ -59,11 +59,11 @@ cd v4l2rtspserver
 sudo apt install cmake liblivemedia-dev liblog4cpp5-dev -y
 cmake . && make
 echo -e "Create symlink..."
-sudo ln -s ./v4l2rtspserver /usr/local/bin/
+sudo ln -sf ./v4l2rtspserver /usr/local/bin/
 
 # create mjpg_streamer symlink
 echo -e "Create mjpg_streamer symlink..."
-ln -s ${HOME}/mjpg_streamer/mjpg_streamer /usr/local/bin/
+ln -sf ${HOME}/mjpg_streamer/mjpg_streamer /usr/local/bin/
 
 # Start webcamd
 sudo sh -c "echo bcm2835-v4l2 >> /etc/modules"
