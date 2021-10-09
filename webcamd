@@ -272,7 +272,6 @@ function run_ustreamer {
         start_param=(
                     --host 127.0.0.1 -p "${port}" -m jpeg --device-timeout=5
                     --buffers=3 -r "${resolution}" --allow-origin=\*
-                    --encoder=omx
                     )
     else
         start_param=(
