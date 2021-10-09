@@ -31,8 +31,8 @@ sudo rm -rf /etc/systemd/system/webcamd.service
 
 # Install Project "crowsnest"
 echo -e "Installing webcamd and enable Service"
-ln -s ./webcamd /usr/local/bin/webcamd
-cp -r ./webcamd.service /etc/systemd/system/
+sudo ln -s ./webcamd /usr/local/bin/webcamd
+sudo cp -r ./webcamd.service /etc/systemd/system/
 cp -r ./sample_configs/minimal.conf ${HOME}/klipper_config/webcam.conf
 sudo systemctl daemon-reload
 sudo systemctl enable webcamd
