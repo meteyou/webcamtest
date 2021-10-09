@@ -32,9 +32,9 @@ sudo rm -rf /etc/systemd/system/webcamd.service
 
 # Install Project "crowsnest"
 echo -e "Installing webcamd and enable Service"
-sudo ln -s ./webcamd /usr/local/bin/webcamd
-sudo cp -r ./webcamd.service /etc/systemd/system/
-cp -r ./sample_configs/minimal.conf ${HOME}/klipper_config/webcam.conf
+sudo ln -s $PWD/webcamd /usr/local/bin/webcamd
+sudo cp -r $PWD/webcamd.service /etc/systemd/system/
+cp -r $PWD/sample_configs/minimal.conf ${HOME}/klipper_config/webcam.conf
 sudo systemctl daemon-reload
 sudo systemctl enable webcamd
 
@@ -52,9 +52,9 @@ cd ustreamer
 sudo apt install build-essential libevent-dev libjpeg-dev libbsd-dev \
 libraspberrypi-dev libgpiod-dev -y
 export WITH_OMX=1
-make -j4 # push limit
+make -j 4 # push limit
 echo -e "Create symlink..."
-sudo ln -sf ./ustreamer /usr/local/bin/
+sudo ln -sf ${HOME}/ustreamer /usr/local/bin/
 
 # Install v4l2rtspserver
 # Make sure its clean
@@ -66,9 +66,9 @@ cd ~
 git clone https://github.com/mpromonet/v4l2rtspserver.git
 cd v4l2rtspserver
 sudo apt install cmake liblivemedia-dev liblog4cpp5-dev -y
-cmake . && make -j4 # push limit
+cmake . && make -j 4 # push limit
 echo -e "Create symlink..."
-sudo ln -sf ./v4l2rtspserver /usr/local/bin/
+sudo ln -sf ${HOME}/v4l2rtspserver/ /usr/local/bin/
 
 # create mjpg_streamer symlink
 echo -e "Create mjpg_streamer symlink..."
