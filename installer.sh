@@ -13,9 +13,15 @@ echo -e "You will be asked for password if needed.\n"
 # Remove existing webcamd.
 echo -e "Backup existing files...\n"
 mkdir -p ${HOME}/webcamd-backup
-cp -p /etc/systemd/system/webcamd.service ${HOME}/webcamd-backup
-cp -p /usr/local/bin/webcamd ${HOME}/webcamd-backup/
-cp -p /etc/logrotate.d/webcamd ${HOME}/webcamd-backup/webcamd.logrotate
+if [ -e "/etc/systemd/system/webcamd.service" ]; then
+    cp -p /etc/systemd/system/webcamd.service ${HOME}/webcamd-backup
+fi
+if [ -e "/usr/local/bin/webcamd" ]; then
+    cp -p /usr/local/bin/webcamd ${HOME}/webcamd-backup/
+fi
+if [ -e "/etc/logrotate.d/webcamd" ]; then
+    cp -p /etc/logrotate.d/webcamd ${HOME}/webcamd-backup/webcamd.logrotate
+fi
 
 # Remove existing.
 echo -e "Removing existing webcamd...\n"
