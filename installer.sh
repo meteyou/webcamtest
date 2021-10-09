@@ -40,6 +40,11 @@ sudo systemctl enable webcamd
 
 
 # Install ustreamer
+# Make sure its clean
+if [ -d "${HOME}/ustreamer" ]; then
+    rm -rf ${HOME}/ustreamer/
+fi
+
 echo -e "Compiling ustreamer..."
 cd ~
 git clone https://github.com/pikvm/ustreamer.git
@@ -47,23 +52,27 @@ cd ustreamer
 sudo apt install build-essential libevent-dev libjpeg-dev libbsd-dev \
 libraspberrypi-dev libgpiod-dev -y
 export WITH_OMX=1
-make
+make -j4 # push limit
 echo -e "Create symlink..."
 sudo ln -sf ./ustreamer /usr/local/bin/
 
 # Install v4l2rtspserver
+# Make sure its clean
+if [ -d "${HOME}/v4l2rtspserver" ]; then
+    rm -rf ${HOME}/v4l2rtspserver/
+fi
 echo -e "Compiling v4l2rtspserver..."
 cd ~
 git clone https://github.com/mpromonet/v4l2rtspserver.git
 cd v4l2rtspserver
 sudo apt install cmake liblivemedia-dev liblog4cpp5-dev -y
-cmake . && make
+cmake . && make -j4 # push limit
 echo -e "Create symlink..."
 sudo ln -sf ./v4l2rtspserver /usr/local/bin/
 
 # create mjpg_streamer symlink
 echo -e "Create mjpg_streamer symlink..."
-ln -sf ${HOME}/mjpg_streamer/mjpg_streamer /usr/local/bin/
+sudo ln -sf ${HOME}/mjpg_streamer/mjpg_streamer /usr/local/bin/
 
 # Start webcamd
 sudo sh -c "echo bcm2835-v4l2 >> /etc/modules"
