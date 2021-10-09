@@ -56,7 +56,7 @@ echo -e "Compiling v4l2rtspserver..."
 cd ~
 git clone https://github.com/mpromonet/v4l2rtspserver.git
 cd v4l2rtspserver
-sudo apt install cmake liblivemedia-dev libv4l2cpp liblog4cpp5-dev -y
+sudo apt install cmake liblivemedia-dev liblog4cpp5-dev -y
 cmake . && make
 echo -e "Create symlink..."
 sudo ln -s ./v4l2rtspserver /usr/local/bin/
