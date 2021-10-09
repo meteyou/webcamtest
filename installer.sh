@@ -44,7 +44,7 @@ cd ~
 git clone https://github.com/pikvm/ustreamer.git
 cd ustreamer
 sudo apt install build-essential libevent-dev libjpeg-dev libbsd-dev \
-libraspberrypi-dev libgpiod
+libraspberrypi-dev libgpiod-dev
 export WITH_OMX=1
 make
 echo -e "Create symlink..."
