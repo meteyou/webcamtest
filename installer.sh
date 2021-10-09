@@ -1,6 +1,8 @@
 #!/bin/bash
 
 set -e
+set -x
+
 
 if [ "${UID}" == "0" ]; then
     echo -e "\nDO NOT RUN THIS SCRIPT AS 'root' !!!\n"
