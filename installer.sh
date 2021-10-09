@@ -57,7 +57,9 @@ echo -e "Create mjpg_streamer symlink..."
 ln -s ${HOME}/mjpg_streamer/mjpg_streamer /usr/local/bin/
 
 # Start webcamd
+sudo sh -c "echo bcm2835-v4l2 >> /etc/modules"
 sudo systemctl start webcamd
 
 echo -e "Finished Installation..."
+echo -e "Please reboot the PI."
 exit 0
