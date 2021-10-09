@@ -31,6 +31,7 @@ sudo rm -rf /usr/local/bin/webcamd
 sudo rm -rf /etc/systemd/system/webcamd.service
 
 # Install Dependency
+sudo apt update
 sudo apt install crudini -y
 
 # Install Project "crowsnest"
