@@ -49,7 +49,7 @@ libraspberrypi-dev libgpiod-dev -y
 export WITH_OMX=1
 make
 echo -e "Create symlink..."
-ln -s ./ustreamer /usr/local/bin/
+sudo ln -s ./ustreamer /usr/local/bin/
 
 # Install v4l2rtspserver
 echo -e "Compiling v4l2rtspserver..."
@@ -59,7 +59,7 @@ cd v4l2rtspserver
 sudo apt install cmake liblivemedia-dev libv4l2cpp liblog4cpp5-dev -y
 cmake . && make
 echo -e "Create symlink..."
-ln -s ./v4l2rtspserver /usr/local/bin/
+sudo ln -s ./v4l2rtspserver /usr/local/bin/
 
 # create mjpg_streamer symlink
 echo -e "Create mjpg_streamer symlink..."
