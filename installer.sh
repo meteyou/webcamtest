@@ -30,6 +30,9 @@ sudo rm -rf /etc/logrotate.d/webcamd
 sudo rm -rf /usr/local/bin/webcamd
 sudo rm -rf /etc/systemd/system/webcamd.service
 
+# Install Dependency
+sudo apt install crudini -y
+
 # Install Project "crowsnest"
 echo -e "Installing webcamd and enable Service"
 sudo ln -s $PWD/webcamd /usr/local/bin/webcamd
