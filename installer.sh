@@ -72,7 +72,7 @@ sudo ln -sf ${HOME}/v4l2rtspserver/ /usr/local/bin/
 
 # create mjpg_streamer symlink
 echo -e "Create mjpg_streamer symlink..."
-sudo ln -sf ${HOME}/mjpg_streamer/mjpg_streamer /usr/local/bin/
+sudo ln -sf ${HOME}/mjpg-streamer/mjpg_streamer /usr/local/bin/
 
 # Start webcamd
 sudo sh -c "echo bcm2835-v4l2 >> /etc/modules"
