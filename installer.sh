@@ -2,6 +2,7 @@
 
 set -e
 set -x
+export DEBIAN_FRONTEND=noninteractive
 
 
 if [ "${UID}" == "0" ]; then
@@ -44,7 +45,7 @@ cd ~
 git clone https://github.com/pikvm/ustreamer.git
 cd ustreamer
 sudo apt install build-essential libevent-dev libjpeg-dev libbsd-dev \
-libraspberrypi-dev libgpiod-dev
+libraspberrypi-dev libgpiod-dev -y
 export WITH_OMX=1
 make
 echo -e "Create symlink..."
@@ -55,7 +56,7 @@ echo -e "Compiling v4l2rtspserver..."
 cd ~
 git clone https://github.com/mpromonet/v4l2rtspserver.git
 cd v4l2rtspserver
-sudo apt install cmake liblivemedia-dev libv4l2cpp liblog4cpp5-dev
+sudo apt install cmake liblivemedia-dev libv4l2cpp liblog4cpp5-dev -y
 cmake . && make
 echo -e "Create symlink..."
 ln -s ./v4l2rtspserver /usr/local/bin/
